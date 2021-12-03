@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+    New Deck
+{% endblock%}
+
+{% block body %} 
+<h2>Create New Deck</h2>
+<form action="/createdeck" method="post">
+    <label for="">Enter Deck Name:</label>
+    <input type="text" name="deckname">
+    <input type="submit" value="Submit">
+</form>
+<a href="/home">Go Home</a>
+{% endblock%}
