@@ -13,9 +13,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 db.init_app(app)
-# #API calls
-# api = Api(app)
-# app.app_context().push()
 
 #Creating model tables
 class User(db.Model):
@@ -23,20 +20,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     username = db.Column(db.String,unique=True,nullable=False)
     password = db.Column(db.String,nullable=False)
-    # score = db.Column(db.Integer, default = 0)
-    # udeck = db.relationship('Deck', cascade='all, delete-orphan', backref='deck')
-
-
-# class Deck(db.Model):
-#     __tablename__ = 'deck'
-#     deck_id = db.Column(db.Integer, primary_key=True, autoincrement = True)
-#     deckname = db.Column(db.String, unique=True, nullable=False)
-#     user = db.Column(db.String, db.ForeignKey('user.username'), nullable=False)
-#     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
-#     score = db.Column(db.Integer, default=0)
-#     last_rev = db.Column(db.DateTime(timezone=True), default=func.now())
-    # dcard = db.relationship('Card', cascade='all, delete-orphan', backref='card')
-
+  
 class Card(db.Model):
     __tablename__ = 'card'
     card_id = db.Column(db.Integer, primary_key=True,autoincrement = True)
